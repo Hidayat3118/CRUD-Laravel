@@ -2,43 +2,52 @@
 
 @section('konten')
     <div class="container mx-auto mt-32">
+        <div class="bg-green-500 w-32 rounded-xl py-3 text-center font-bold text-white hover:bg-green-600 cursor-pointer">
+            <a href="{{ route('siswa.tambah') }}">Tambahkan</a>
+        </div>
         <div class="container mx-auto p-6">
             <div class="overflow-x-auto">
-                <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
+                <table class="min-w-full bg-white border border-gray-300 rounded-xl shadow-md">
                     <thead class="bg-gray-100">
                         <tr>
-                            <th class="py-3 px-6 text-left border-b">No</th>
-                            <th class="py-3 px-6 text-left border-b">Nis</th>
-                            <th class="py-3 px-6 text-left border-b">Nama</th>
-                            <th class="py-3 px-6 text-left border-b">alamat</th>
-                            <th class="py-3 px-6 text-left border-b">No Hp</th>
-                            <th class="py-3 px-6 text-left border-b">Jenis Kelamin</th>
-                            <th class="py-3 px-6 text-left border-b">Hobi</th>
+                            <th class="py-3 px-6 text-center border-b border-gray-300">No</th>
+                            <th class="py-3 px-6 text-center border-b border-gray-300">Nis</th>
+                            <th class="py-3 px-6 text-center border-b border-gray-300">Nama</th>
+                            <th class="py-3 px-6 text-center border-b border-gray-300">alamat</th>
+                            <th class="py-3 px-6 text-center border-b border-gray-300">No Hp</th>
+                            <th class="py-3 px-6 text-center border-b border-gray-300">Jenis Kelamin</th>
+                            <th class="py-3 px-6 text-center border-b border-gray-300">Hobi</th>
+                            <th class="py-3 px-6 text-center border-b border-gray-300">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- <tr class="border-b hover:bg-gray-50">
-                            <td class="py-3 px-6">1</td>
-                            <td class="py-3 px-6">John Doe</td>
-                            <td class="py-3 px-6">johndoe@example.com</td>
-                            <td class="py-3 px-6 text-green-600">Active</td>
-                        </tr>
-                        <tr class="border-b hover:bg-gray-50">
-                            <td class="py-3 px-6">2</td>
-                            <td class="py-3 px-6">Jane Smith</td>
-                            <td class="py-3 px-6">janesmith@example.com</td>
-                            <td class="py-3 px-6 text-red-600">Inactive</td>
-                        </tr>
-                        <tr class="border-b hover:bg-gray-50">
-                            <td class="py-3 px-6">3</td>
-                            <td class="py-3 px-6">Michael Johnson</td>
-                            <td class="py-3 px-6">michael@example.com</td>
-                            <td class="py-3 px-6 text-green-600">Active</td>
-                        </tr> --}}
+                        @foreach ($siswa as $no => $data)
+                            <tr class="border-b border-gray-300 hover:bg-gray-100">
+                                <td class="py-3 px-6 text-center">{{ $no + 1 }}</td>
+                                <td class="py-3 px-6 text-center">{{ $data->nis }}</td>
+                                <td class="py-3 px-6 text-center">{{ $data->nama }}</td>
+                                <td class="py-3 px-6 text-center">{{ $data->alamat }}</td>
+                                <td class="py-3 px-6 text-center">{{ $data->no_hp }}</td>
+                                <td class="py-3 px-6 text-center">{{ $data->jenis_kelamin }}</td>
+                                <td class="py-3 px-6 text-center">{{ $data->hobi }}</td>
+                                <td class="py-3 px-6 text-center">
+                                   <div class="flex justify-center gap-4">
+                                    <div
+                                    class="bg-red-500 w-32 rounded-xl py-3 text-center font-bold text-white hover:bg-red-700 cursor-pointer">
+                                    <i class="fa-solid fa-trash"></i>
+                                </div>
+                                <div
+                                    class="bg-yellow-500 w-32 rounded-xl py-3 text-center font-bold text-white hover:bg-yellow-600 cursor-pointer">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </div>
+                                   </div>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
-        
+
     </div>
-@endsection 
+@endsection
