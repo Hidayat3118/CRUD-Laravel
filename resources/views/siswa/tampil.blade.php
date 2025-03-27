@@ -31,16 +31,22 @@
                                 <td class="py-3 px-6 text-center">{{ $data->jenis_kelamin }}</td>
                                 <td class="py-3 px-6 text-center">{{ $data->hobi }}</td>
                                 <td class="py-3 px-6 text-center">
-                                   <div class="flex justify-center gap-4">
-                                    <div
-                                    class="bg-red-500 w-32 rounded-xl py-3 text-center font-bold text-white hover:bg-red-700 cursor-pointer">
-                                    <i class="fa-solid fa-trash"></i>
-                                </div>
-                                <div
-                                    class="bg-yellow-500 w-32 rounded-xl py-3 text-center font-bold text-white hover:bg-yellow-600 cursor-pointer">
-                                    <i class="fa-solid fa-pen-to-square"></i>
-                                </div>
-                                   </div>
+                                    <div class="flex justify-center gap-4">
+                                        {{-- Hapus --}}
+                                        <form action="{{ route('siswa.delete', $data->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" id="button"
+                                                class="bg-red-500 w-32 rounded-xl py-3 text-center font-bold text-white hover:bg-red-700 cursor-pointer">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </button>
+                                        </form>
+                                        {{-- Edit --}}
+                                        <a href="{{ route('siswa.edit', $data->id) }}"
+                                            class="bg-yellow-500 w-32 rounded-xl py-3 text-center font-bold text-white hover:bg-yellow-600 cursor-pointer">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </a>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach
@@ -50,4 +56,6 @@
         </div>
 
     </div>
+
+    <script src="../js/tampil.js"></script>
 @endsection
