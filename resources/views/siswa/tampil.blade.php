@@ -2,6 +2,15 @@
 
 @section('konten')
     <div class="container mx-auto mt-32">
+        <header class="bg-blue-500 h-24 my-10">
+
+            @if (Auth::check())
+                <form action="{{ route('logout') }}" method="POST" class="flex justify-end p-8 ">
+                    @csrf
+                    <button class="text-white font-bold cursor-pointer">logout</button>
+                </form>
+            @endif
+        </header>
         <div class="bg-green-500 w-32 rounded-xl py-3 text-center font-bold text-white hover:bg-green-600 cursor-pointer">
             <a href="{{ route('siswa.tambah') }}">Tambahkan</a>
         </div>

@@ -34,9 +34,14 @@ class AuthController extends Controller
             $request->session()->regenerate();
             return redirect()->route('siswa.tampil');
         } else {
-            return redirect()->back()->with('Gagal login');
+            return redirect()->back()->with('gagal', 'email atau password salah');
         }
 
+    }
+
+    function logout(){
+        Auth::logout();
+        return redirect()->route('login.tampil');
     }
 
 

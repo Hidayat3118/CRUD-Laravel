@@ -55,4 +55,8 @@ class SiswaController extends Controller
      $siswa->delete();
      return redirect()->route('siswa.tampil');
     }
+
+    function home(){
+        return view('siswa.home');
+    }
 }

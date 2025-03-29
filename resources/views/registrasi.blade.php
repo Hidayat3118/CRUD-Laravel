@@ -19,7 +19,7 @@
                         </div>
                         <div>
                             <label for="password" class="block text-gray-600 font-medium">Password</label>
-                            <input type="password" id="password" name="password" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-400" required>
+                            <input type="text" id="password" name="password" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-400" required>
                         </div>
                         <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700">Daftar</button>
                     </form>
